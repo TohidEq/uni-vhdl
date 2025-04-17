@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/python
 
 import os
 import re
@@ -46,6 +46,7 @@ def parse_vhdl_entity(file_path):
     return entity_name, ports
 
 def generate_testbench(entity_name, ports):
+    global delay;
     """Generate testbench VHDL code."""
     tb_name = f"{entity_name}_tb"
     # Header
