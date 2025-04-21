@@ -9,10 +9,13 @@ end mux;
 
 architecture Behavioral of mux is
 begin
-  X<= A when (S="00") else
-      B when (S="01") else
-      C when (S="10") else
-      D;
+
+
+  WITH S SELECT
+    X <=  A WHEN "00",
+          B WHEN "01",
+          C WHEN "10",
+          D WHEN OTHERS;
 
 
 end Behavioral;
