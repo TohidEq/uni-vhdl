@@ -11,13 +11,14 @@ end encoder_8_3;
 
 architecture Behavioral of encoder_8_3 is
 begin
-  O <= "000" when I="00000001" else
-        "001" when I="00000010" else
-        "010" when I="00000100" else
-        "011" when I="00001000" else
-        "100" when I="00010000" else
-        "101" when I="00100000" else
-        "110" when I="01000000" else
-        "111" when I="10000000" else
-        "ZZZ";
+  with I select
+  O <= "000" when "00000001" ,
+        "001" when "00000010",
+        "010" when "00000100",
+        "011" when "00001000",
+        "100" when "00010000",
+        "101" when "00100000",
+        "110" when "01000000",
+        "111" when "10000000",
+        "ZZZ" when others;
 end Behavioral;
