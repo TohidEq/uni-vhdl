@@ -46,14 +46,14 @@ begin
             J_tb <= '1'; wait for 10 ns;
             clk_tb<= '0'; wait for 3 ns;
 
-            R_tb <= '1'; wait for 2 ns;
-            R_tb <= '0'; wait for 0 ns;
+            R_tb <= '0'; wait for 2 ns;
+            R_tb <= '1'; wait for 0 ns;
 
             J_tb <= '1'; wait for 10 ns;
             clk_tb<= '1'; wait for 3 ns;
 
-            R_tb <= '1'; wait for 2 ns;
-            R_tb <= '0'; wait for 0 ns;
+            R_tb <= '0'; wait for 2 ns;
+            R_tb <= '1'; wait for 0 ns;
 
             J_tb <= '0'; wait for 10 ns;
             clk_tb<= '0'; wait for 3 ns;
