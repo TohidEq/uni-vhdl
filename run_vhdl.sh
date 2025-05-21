@@ -2,10 +2,10 @@
 
 # Script to run VHDL simulation with GHDL and GTKWave
 
-# Check if exactly one argument is provided
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <source_vhdl_file>"
-    echo "Example: $0 ABC.vhd"
+# Check if at least one argument is provided
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 <source_vhdl_file> [-arith]"
+    echo "Example: $0 ABC.vhd -arith"
     exit 1
 fi
 
@@ -18,6 +18,11 @@ WAVEFORM="waveform.vcd"
 GHDL="ghdl"
 GHDLFLAGS="--std=08"
 GTKWAVE="gtkwave"
+
+# Optional: Add -fsynopsys if -arith is passed
+if [[ "$@" =~ "-arith" ]]; then
+    GHDLFLAGS+=" -fsynopsys"
+fi
 
 # Check if files exist
 if [ ! -f "$SRC_FILE" ]; then
